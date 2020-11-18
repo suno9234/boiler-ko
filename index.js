@@ -7,6 +7,8 @@ const { User } = require('./models/User');
 const config = require('./config/key');
 const cookieParser =require('cookie-parser');
 
+//git remote add origin git@github.com:suno9234/boiler-ko.git
+
 //application/x-www-from-urlencoded
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
@@ -61,7 +63,7 @@ app.post('/login',(req,res)=>{
                 if(err) return res.status(400).send(err);
                 res.cookie("x_auth",user.token)
                 .status(200)
-                .json({loginSuccess: true,  userId:user.id})
+                .json({loginSuccess: true,  userId:user.token})
 
 
             })
