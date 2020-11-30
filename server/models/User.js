@@ -8,6 +8,9 @@ const cookieParser = require('cookie-parser');
 
 
 const userSchema = mongoose.Schema({
+    name:{
+        type:String
+    },
     id:{
         type: String,
         maxlength:30
@@ -18,6 +21,18 @@ const userSchema = mongoose.Schema({
     },
     defaultAddress:{
         type : String
+    },
+    token:{
+        type: String
+    },
+    role:{
+        
+    },
+    isAuth:{
+        type: Boolean
+    },
+    order:{
+        type : Object
     }
 
     
@@ -27,7 +42,6 @@ userSchema.pre('save',function(next){
     //비밀번호 암호화시키기
     var user = this;
     if(user.isModified('password')){
-        
         bcrypt.genSalt(saltRounds , function( err , salt ) {
         
             if(err){
@@ -59,7 +73,7 @@ userSchema.methods.generateToken=function(cb){
 
     var user =this ;
     
-    var token = jwt.sign(user.id, ' secretToken')
+    var token = jwt.sign(user.id, 'secretToken')
 
     user.token = token
     user.save(function(err,user){
@@ -68,6 +82,16 @@ userSchema.methods.generateToken=function(cb){
     })
 }
 
+userSchema.statics.findByToken = function(token,cb){
+    var user= this;
+    jwt.verify(token,'secretToken',function(err,decoded){
+        user.findOne({"id":decoded,"token": token},function(err,user){
+            if(err) return cb(err);
+            cb(err,user)
+        })
+
+    })
+}
 const User= mongoose.model('User',userSchema)
 
 module.exports ={ User }
