@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/boiler-ko/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/boiler-ko/static/js/main.65c23884.chunk.js",
+    "main.js.map": "/boiler-ko/static/js/main.65c23884.chunk.js.map",
+    "runtime-main.js": "/boiler-ko/static/js/runtime-main.6b0a4f35.js",
+    "runtime-main.js.map": "/boiler-ko/static/js/runtime-main.6b0a4f35.js.map",
+    "static/css/2.91690734.chunk.css": "/boiler-ko/static/css/2.91690734.chunk.css",
+    "static/js/2.04a400d2.chunk.js": "/boiler-ko/static/js/2.04a400d2.chunk.js",
+    "static/js/2.04a400d2.chunk.js.map": "/boiler-ko/static/js/2.04a400d2.chunk.js.map",
+    "static/js/3.3736f394.chunk.js": "/boiler-ko/static/js/3.3736f394.chunk.js",
+    "static/js/3.3736f394.chunk.js.map": "/boiler-ko/static/js/3.3736f394.chunk.js.map",
+    "index.html": "/boiler-ko/index.html",
+    "static/css/2.91690734.chunk.css.map": "/boiler-ko/static/css/2.91690734.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/boiler-ko/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.04a400d2.chunk.js.LICENSE.txt": "/boiler-ko/static/js/2.04a400d2.chunk.js.LICENSE.txt",
+    "static/media/english.4b3bcd0d.jpg": "/boiler-ko/static/media/english.4b3bcd0d.jpg",
+    "static/media/fren.90124702.jpg": "/boiler-ko/static/media/fren.90124702.jpg",
+    "static/media/sham.88d27d33.jpg": "/boiler-ko/static/media/sham.88d27d33.jpg",
+    "static/media/val.20d684d5.JPG": "/boiler-ko/static/media/val.20d684d5.JPG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6b0a4f35.js",
+    "static/css/2.91690734.chunk.css",
+    "static/js/2.04a400d2.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.65c23884.chunk.js"
+  ]
+}
