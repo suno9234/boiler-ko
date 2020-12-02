@@ -1,6 +1,7 @@
 import React,{ useState} from 'react'
 import Axios from 'axios'
 import{withRouter }from 'react-router-dom'
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 function LoginPage(props) {
 
@@ -19,6 +20,11 @@ function LoginPage(props) {
       props.history.push('/register')
     }
 
+    const HomeHandler=(event)=>{
+      event.preventDefault();
+      props.history.push('/')
+      
+    }
     const onSubmitHandler = (event)=>{
       event.preventDefault();
       
@@ -42,13 +48,16 @@ function LoginPage(props) {
     }
 
     return (
-      
-      <div style={{
-        display:'flex', justifyContent: 'center', alignItems: ' center',
-        width:'100%',height:'100vh'
-      }}>
-
-        <form style={{display:'flex', flexDirection:'column'}}
+      <>
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand onClick={HomeHandler}>Mr.Dinner Service</Navbar.Brand>
+      <Nav className="mr-auto">
+        
+        
+      </Nav>
+    </Navbar>
+    <br />
+    <form style={{display:'flex', flexDirection:'column',height:'50px',width:'400px',margin:'0 auto',marginTop:'200px'}}
           onSubmit={onSubmitHandler}
         >
           <label>id</label>
@@ -56,17 +65,22 @@ function LoginPage(props) {
           <label>password</label>
           <input type ="password" value={Password} onChange={onPwdHandler}/>
           <br/>
-          <button onClick={RegisterHandler}>
-            register
-          </button>
-          <button type = "submit">
+          <button type = "submit" style={{backgroundColor:'#37363d',color:'white',border:'#37363d'
+        ,fontSize:'18px',marginTop:'5px',marginBottom:'5px'}} >
             login
           </button>
-
+          
+          <button onClick={RegisterHandler} style={{backgroundColor:'#37363d' ,color:'white',border:'#37363d',
+        fontSize:'18px',marginTop:'5px',marginBottom:'5px'}}>
+            register
+          </button>
 
         </form>
         
-        </div>
+  </>
+      
+
+        
       );
   }
 

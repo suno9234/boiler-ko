@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema({
         type: String
     },
     role:{
-        
+
     },
     isAuth:{
         type: Boolean

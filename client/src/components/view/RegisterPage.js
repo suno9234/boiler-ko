@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import Axios from 'axios'
 import{withRouter }from 'react-router-dom'
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 function RegisterPage(props) {
 
@@ -25,11 +26,31 @@ function RegisterPage(props) {
       setcheckpwd(event.currentTarget.value)
     }
 
+    const HomeHandler=(event)=>{
+      event.preventDefault();
+      props.history.push('/')
+      
+    }
+    const LoginHandler=(event)=>{
+      event.preventDefault();
+      props.history.push('/login')
+    }
+
     const onSubmitHandler = (event)=>{
       event.preventDefault();
       
       if(Password !==Checkpassword){
         return alert('비밀번호가 동일하지 않습니다')
+      }
+
+      if(Name==""){
+        return alert('이름을 입력해 주세요')
+      }
+      if(Id==""){
+        return alert('아이디를 입력해 주세요')
+      }
+      if(Password==""){
+        return alert('비밀번호를 입력해 주세요')
       }
 
       let body = {
@@ -41,8 +62,9 @@ function RegisterPage(props) {
 
       Axios.post('/api/user/register',body)
       .then(function(response){
+        console.log(response)
         if(response.status===200){
-          console.alert("회원가입 성공")
+          alert("회원가입 성공")
           props.history.push('/login')
         }
       })
@@ -50,13 +72,21 @@ function RegisterPage(props) {
     }
 
     return (
-      
+      <>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand onClick={HomeHandler}>Mr.Dinner Service</Navbar.Brand>
+        <Nav className="mr-auto">
+          
+          
+        </Nav>
+      </Navbar>
+     
       <div style={{
         display:'flex', justifyContent: 'center', alignItems: ' center',
         width:'100%',height:'100vh'
       }}>
 
-        <form style={{display:'flex', flexDirection:'column'}}
+        <form style={{display:'flex', flexDirection:'column',height:'50vh',width:'400px'}}
           onSubmit={onSubmitHandler}
         >
           <label>name</label>
@@ -72,10 +102,12 @@ function RegisterPage(props) {
           <input type ="password" value={Checkpassword} onChange={onCheckPwdHandler}/>
           <br/>
 
-          <button type = "submit">
+          <button type = "submit" style={{backgroundColor:'#37363d' ,color:'white',border:'#37363d',
+        fontSize:'18px',marginTop:'5px',marginBottom:'5px'}}>
             register
           </button>
-          <button type = "submit">
+          <button onClick={LoginHandler} style={{backgroundColor:'#37363d' ,color:'white',border:'#37363d',
+        fontSize:'18px',marginTop:'5px',marginBottom:'5px'}}>
             login
           </button>
 
@@ -83,6 +115,9 @@ function RegisterPage(props) {
         </form>
         
         </div>
+          
+    </>
+      
       );
   }
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
-const FrenchSchema = mongoose.Schema({
+const ProductSchema = mongoose.Schema({
 
     id:{
         type: String
@@ -9,19 +9,14 @@ const FrenchSchema = mongoose.Schema({
     menuName:{
         type:String
     },
-    coffie :{
-        
+    options:{type:[String]        
     },
-    wine :{
-
-    },
-    salad : {
-
-    }
-    ,meat   :{
-        
+    optionnum:{type:[String]
     },
     isvalentine:{
+
+    },
+    style:{
 
     },
     status:{
@@ -29,12 +24,13 @@ const FrenchSchema = mongoose.Schema({
     },
     address:{
         
-    },time:{
-        
+    },
+    time:{
+
     }
 
 
 
 })
-const French= mongoose.model('French',FrenchSchema)
-module.exports={French}
+const Product= mongoose.model('Product',ProductSchema)
+module.exports={Product}
